@@ -35,7 +35,7 @@ async def question_to_sql(question: str) -> str:
     lookup) wrapped in asyncio.sleep(0) to make the async
     behaviour explicit.
     """
-    await asyncio.sleep(0)  # simulate the await of a real network call
+    await asyncio.sleep(0) # simulate the await of a real network call
 
     key = question.strip().lower()
     if key in RESPONSES:

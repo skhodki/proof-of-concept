@@ -1,10 +1,11 @@
 """
 fake_llm_out.py
 
-A placeholder for the output side of the LLM. It takes the original question
-and the rows returned by the database, and produces a natural-language answer.
-For now, the sentences are built from a template; later, this module will call
-a real LLM and the rest of the system will not need to change.
+A placeholder for the output side of the LLM. It takes the
+original question and the rows returned by the database, and
+produces a natural-language answer. For now, the sentences are
+built from a template; later, this module will call a real LLM
+and the rest of the system will not need to change.
 """
 
 import asyncio
@@ -36,13 +37,18 @@ def _format_time(start: datetime) -> str:
 
 async def rows_to_answer(question: str, rows: list[dict]) -> str:
     """
-    Convert a question and its result rows into a natural-language answer.
+    Convert a question and its result rows into a natural-language
+    answer.
 
-    This is async so that the real LLM call can replace the body without
-    changing the caller. The current implementation is a deterministic
-    template.
+    This is async so that the real LLM call can replace the body
+    without changing the caller. The current implementation is a
+    deterministic template.
+
+    NOTE that `question` is not used here, but it will be sent as
+    part of the prompt to a real LLM, to help it formulate an
+    answer that best matches the original question.
     """
-    await asyncio.sleep(0)  # simulate the await of a real network call
+    await asyncio.sleep(0) # simulate the await of a real network call
 
     if not rows:
         return "I could not find any meetings matching that request."
