@@ -4,7 +4,7 @@ from pathlib import Path
 
 import psycopg2
 from pydantic import BaseModel
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from config import settings
 
 from fake_llm_in import question_to_sql
 from fake_llm_out import rows_to_answer
@@ -13,17 +13,6 @@ app = FastAPI()
 
 class AskRequest(BaseModel):
     question: str
-
-class Settings(BaseSettings):
-    db_name: str
-    db_user: str
-    db_password: str
-    db_host: str = "localhost"
-    db_port: int = 5432
-
-    model_config = SettingsConfigDict(env_file=".env")
-
-settings = Settings()
 
 
 @app.post("/ask")
