@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/script.js"></script>
+  <title>Natural Language</title>
+</head>
+<body>
+  <h3>Natural Language Database Requests</h3>
+  <div id="buttons">
+    <button
+      type="button"
+      id="find-all"
+      data-question="find all meetings"
+    >
+      Find All Meetings
+    </button>
+    <button
+      type="button"
+      id="find-ai"
+      data-question="find ai meetings"
+    >
+      Find AI Meetings
+    </button>
+    <button
+      type="button"
+      id="find-friday"
+      data-question="find meetings on friday"
+    >
+      Find Friday Meetings
+    </button>
+  </div>
+  <p id="question"></p>
+  <pre id="json"></pre>
+  <pre id="result"></pre>
+</body>
+</html>
